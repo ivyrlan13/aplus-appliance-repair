@@ -192,11 +192,10 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <a
               href="tel:+19415272206"
-              className="group relative overflow-hidden rounded-lg bg-brand-red px-4 py-2 text-sm font-bold text-white shadow-sm outline outline-1 outline-brand-red transition-all sm:px-5 sm:text-base"
+              className="group relative hidden overflow-hidden rounded-lg bg-brand-red px-5 py-2 text-base font-bold text-white shadow-sm outline outline-1 outline-brand-red transition-all sm:inline-flex"
             >
               <span className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0" />
-              <span className="relative z-10 hidden transition-colors duration-300 group-hover:text-brand-red sm:inline">(941) 527-2206</span>
-              <span className="relative z-10 transition-colors duration-300 group-hover:text-brand-red sm:hidden">Call Now</span>
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-brand-red">(941) 527-2206</span>
             </a>
 
             {/* Mobile Hamburger */}

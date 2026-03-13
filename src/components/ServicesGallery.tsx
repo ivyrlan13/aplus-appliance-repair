@@ -41,18 +41,18 @@ export default function ServicesGallery() {
   }, [carouselApi]);
 
   return (
-    <section className="py-16 sm:py-24">
+    <section className="py-10 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
+        <div className="mb-6 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-16">
           <div>
-            <h2 className="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 md:mb-4 md:text-4xl lg:mb-6 lg:text-5xl">
+            <h2 className="mb-2 text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl md:mb-4 md:text-4xl lg:mb-6 lg:text-5xl">
               What We <span className="text-brand-red">Repair</span>
             </h2>
-            <p className="text-lg text-gray-500">
+            <p className="text-sm text-gray-500 sm:text-lg">
               Expert care for every appliance in your home
             </p>
           </div>
-          <div className="mt-8 flex shrink-0 items-center justify-start gap-2">
+          <div className="mt-4 flex shrink-0 items-center justify-start gap-2 sm:mt-8">
             <Button
               size="icon"
               variant="outline"

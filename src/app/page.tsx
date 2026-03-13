@@ -101,7 +101,7 @@ export default function HomePage() {
       <section className="bg-gray-800 py-16 sm:py-20">
         <AnimatedSection className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <GlowCard>
-            <div className="rounded-2xl border border-gray-700/50 bg-gray-700/50 p-8 shadow-xl sm:p-12">
+            <div className="rounded-2xl border border-gray-700/50 bg-gray-700/50 p-5 shadow-xl sm:p-12">
               <div className="text-center">
                 <p className="text-sm font-semibold uppercase tracking-widest text-gray-400">
                   What Our Customers Say
@@ -112,7 +112,7 @@ export default function HomePage() {
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className="h-10 w-10 text-yellow-400 sm:h-12 sm:w-12"
+                      className="h-7 w-7 text-yellow-400 sm:h-12 sm:w-12"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -123,7 +123,7 @@ export default function HomePage() {
 
                 {/* Rating */}
                 <div className="mt-5">
-                  <span className="text-6xl font-extrabold text-white sm:text-7xl">
+                  <span className="text-5xl font-extrabold text-white sm:text-7xl">
                     {business.rating}
                   </span>
                   <span className="ml-3 text-2xl font-bold text-gray-400">/ 5.0</span>
@@ -140,7 +140,7 @@ export default function HomePage() {
                 {/* Divider */}
                 <div className="mx-auto mt-8 h-px w-32 bg-brand-red/40" />
 
-                <p className="mt-8 text-xl italic leading-relaxed text-gray-200 sm:text-2xl">
+                <p className="mt-6 text-base italic leading-relaxed text-gray-200 sm:mt-8 sm:text-2xl">
                   &ldquo;The most reliable appliance repair company we&apos;ve ever used.
                   Fast, honest, and they truly care about their customers.&rdquo;
                 </p>
@@ -200,21 +200,21 @@ export default function HomePage() {
         </div>
         <div className="absolute inset-0 z-[1] bg-gray-100/65" />
         <AnimatedSection className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-center text-2xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             Proudly Serving <span className="text-brand-red">Our Community</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-center text-lg leading-relaxed text-gray-600">
+          <p className="mx-auto mt-3 max-w-3xl text-center text-sm leading-relaxed text-gray-600 sm:mt-4 sm:text-lg">
             From the beaches of Sarasota to the growing neighborhoods of Parrish,
             we&apos;re your neighbors. Our technicians live and work right here in
             Manatee and Sarasota counties, and we treat every customer like family.
           </p>
 
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:mt-14 sm:gap-4">
             {locations.map((location) => (
               <Link
                 key={location.slug}
                 href={`/service-areas/${location.slug}`}
-                className="group relative overflow-hidden rounded-full border-2 border-gray-300 bg-white/90 px-6 py-3 text-base font-bold text-gray-900 shadow-sm transition-all hover:border-brand-red hover:shadow-lg hover:shadow-red-900/30"
+                className="group relative overflow-hidden rounded-full border-2 border-gray-300 bg-white/90 px-4 py-2 text-sm font-bold text-gray-900 shadow-sm transition-all hover:border-brand-red hover:shadow-lg hover:shadow-red-900/30 sm:px-6 sm:py-3 sm:text-base"
               >
                 <span className="absolute inset-0 bg-brand-red translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0" />
                 <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
@@ -252,7 +252,7 @@ export default function HomePage() {
                     src={brand.logo}
                     alt={`${brand.name} logo`}
                     className={`w-auto object-contain brightness-0 invert ${
-                      brand.name === "GE" ? "h-24 sm:h-28" : "h-20 sm:h-24"
+                      brand.name === "GE" ? "h-14 sm:h-28" : "h-12 sm:h-24"
                     }`}
                   />
                   {brand.name === "LG" && (
@@ -276,7 +276,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gray-900/80" />
         </div>
         <AnimatedSection className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-extrabold text-white sm:text-5xl lg:text-6xl">
             Your Neighbors Trust Us
             <br />
             <span className="text-brand-red">You Can Too</span>
@@ -288,7 +288,7 @@ export default function HomePage() {
 
           <a
             href="tel:+19415272206"
-            className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-xl bg-brand-red px-10 py-5 text-2xl font-extrabold text-white shadow-2xl outline outline-1 outline-brand-red transition-all hover:scale-105 sm:text-3xl"
+            className="group relative mt-8 inline-flex items-center gap-3 overflow-hidden rounded-xl bg-brand-red px-8 py-4 text-xl font-extrabold text-white shadow-2xl outline outline-1 outline-brand-red transition-all hover:scale-105 sm:mt-10 sm:px-10 sm:py-5 sm:text-3xl"
           >
             <span className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0" />
             <svg
