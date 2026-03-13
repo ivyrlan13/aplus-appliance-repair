@@ -4,6 +4,7 @@ import SchemaMarkup from "@/components/SchemaMarkup";
 import AnimatedHero from "@/components/AnimatedHero";
 import { GlowCard } from "@/components/GlowCard";
 import { business } from "@/data/business";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { services } from "@/data/services";
 import { locations } from "@/data/locations";
 import TestimonialMarquee from "@/components/TestimonialMarquee";
@@ -38,6 +39,7 @@ export const metadata: Metadata = {
   },
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const serviceCardColors = [
   "bg-red-50 border-red-200",
   "bg-blue-50 border-blue-200",
