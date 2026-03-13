@@ -12,7 +12,7 @@ interface AnimatedGroupProps {
   };
 }
 
-const defaultVariants = {
+const defaultVariants: { container: Variants; item: Variants } = {
   container: {
     hidden: { opacity: 0 },
     visible: {

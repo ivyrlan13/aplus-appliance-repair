@@ -9,6 +9,7 @@ import { locations } from "@/data/locations";
 import TestimonialMarquee from "@/components/TestimonialMarquee";
 import AnimatedSection from "@/components/AnimatedSection";
 import ScrollingImages from "@/components/ScrollingImages";
+import ServicesGallery from "@/components/ServicesGallery";
 import {
   generateLocalBusinessSchema,
   generateWebsiteSchema,
@@ -156,45 +157,9 @@ export default function HomePage() {
       </section>
 
       {/* ====== SERVICES ====== */}
-      <section className="bg-gray-100 py-16 sm:py-24">
-        <AnimatedSection className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            What We <span className="text-brand-red">Repair</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-gray-500">
-            Expert care for every appliance in your home
-          </p>
-
-          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
-              <GlowCard key={service.slug}>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="group block overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md transition-all hover:border-brand-red/50 hover:shadow-xl hover:shadow-red-900/10"
-                >
-                  <div
-                    className={`${serviceCardColors[index % serviceCardColors.length]} flex flex-col items-center border-b px-6 pb-8 pt-10`}
-                  >
-                    <span className="text-7xl sm:text-8xl">{service.icon}</span>
-                    <h3 className="mt-5 text-2xl font-extrabold text-gray-900 group-hover:text-brand-red">
-                      {service.name}
-                    </h3>
-                    <p className="mt-3 text-center text-sm leading-relaxed text-gray-600">
-                      {service.shortDescription}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-2 text-base font-bold text-brand-red">
-                      Learn More
-                      <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
-                  </div>
-                </Link>
-              </GlowCard>
-            ))}
-          </div>
-        </AnimatedSection>
-      </section>
+      <div className="bg-gray-100">
+        <ServicesGallery />
+      </div>
 
       {/* ====== OUR PROMISE ====== */}
       <section className="bg-gray-800 py-16 sm:py-24">
