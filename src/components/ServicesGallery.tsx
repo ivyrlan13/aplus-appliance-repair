@@ -14,12 +14,12 @@ import {
 import { services } from "@/data/services";
 
 const serviceImages: Record<string, string> = {
-  "washer-repair": "/appliances/washer.jpg",
-  "dryer-repair": "/appliances/dryer.jpg",
-  "refrigerator-repair": "/appliances/fridge.jpg",
-  "dishwasher-repair": "/appliances/dishwasher.jpg",
-  "oven-range-repair": "/appliances/oven.jpg",
-  "dryer-vent-cleaning": "/appliances/vent.jpg",
+  "washer-repair": "/appliances/washer.webp",
+  "dryer-repair": "/appliances/dryer.webp",
+  "refrigerator-repair": "/appliances/fridge.webp",
+  "dishwasher-repair": "/appliances/dishwasher-new.jpg",
+  "oven-range-repair": "/appliances/oven-new.png",
+  "dryer-vent-cleaning": "/appliances/vent-new.png",
 };
 
 export default function ServicesGallery() {

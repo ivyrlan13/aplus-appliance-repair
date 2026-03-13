@@ -76,9 +76,11 @@ export default function Header() {
             <Image
               src="/images/logo.png"
               alt="A Plus Appliance Repair logo"
-              width={220}
-              height={50}
+              width={644}
+              height={89}
               className="h-10 w-auto"
+              quality={100}
+              unoptimized
               priority
             />
           </Link>
