@@ -11,7 +11,7 @@ interface TestimonialCardProps {
 
 export default function TestimonialCard({ author, text }: TestimonialCardProps) {
   return (
-    <div className="flex w-[320px] shrink-0 flex-col gap-4 rounded-xl border border-gray-700/50 bg-gray-800/60 p-6 shadow-lg sm:w-[360px]">
+    <div className="flex w-[320px] shrink-0 flex-col gap-4 rounded-xl border border-gray-700/50 bg-gray-700/50 p-6 shadow-lg sm:w-[360px]">
       <div className="flex items-center gap-1">
         {[...Array(5)].map((_, i) => (
           <svg

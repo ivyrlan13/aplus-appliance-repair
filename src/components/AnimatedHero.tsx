@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { PhoneCall } from "lucide-react";
 import Link from "next/link";
 
@@ -26,20 +27,28 @@ export default function AnimatedHero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url('https://aplus-appliancerepair.com/wp-content/uploads/2025/11/GettyImages-2205544744-scaled.jpg')",
+          backgroundImage: "url('/hero-bg.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-gray-900/80" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, filter: "blur(12px)", y: 30 }}
+        animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+        transition={{ type: "spring", bounce: 0.3, duration: 1.5, delay: 0.2 }}
+        className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8"
+      >
         <div className="flex gap-8 items-center justify-center flex-col">
           <div className="flex gap-4 flex-col items-center">
-            <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-extrabold text-white">
-              Servicing All Major Brand
-              <br />
-              <span className="text-brand-red">Appliances</span>
+            <h1 className="text-center">
+              <span className="block text-5xl md:text-7xl tracking-tighter font-extrabold text-white">
+                Servicing All Major Brand
+              </span>
+              <span className="block text-5xl md:text-7xl tracking-tighter font-extrabold text-brand-red">
+                Appliances
+              </span>
+              <span className="sr-only">Appliance Repair in Bradenton and Sarasota</span>
             </h1>
 
             <div className="h-[70px] sm:h-[80px] flex items-center justify-center overflow-hidden">
@@ -54,11 +63,17 @@ export default function AnimatedHero() {
               </span>
             </div>
 
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-300 sm:text-xl text-center">
-              For over 20 years, families across Bradenton and Sarasota have trusted
-              A Plus Appliance Repair to keep their homes running. LG Authorized.
-              Available 24/7.
-            </p>
+            <div className="space-y-1 text-center">
+              <p className="mx-auto max-w-2xl text-xl font-semibold text-gray-300 sm:text-2xl">
+                Delivering professional repairs and dryer vent cleanings in Bradenton &amp; Sarasota.
+              </p>
+              <p className="text-xl font-semibold text-gray-400 sm:text-2xl">
+                20+ Years of Trusted Expertise
+              </p>
+              <p className="text-xl font-semibold text-brand-red sm:text-2xl">
+                LG Authorized
+              </p>
+            </div>
           </div>
 
           <a
@@ -86,7 +101,7 @@ export default function AnimatedHero() {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

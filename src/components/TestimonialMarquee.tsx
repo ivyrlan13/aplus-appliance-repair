@@ -49,8 +49,8 @@ export default function TestimonialMarquee() {
       </div>
 
       {/* Fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/6 bg-gradient-to-r from-gray-900 sm:block" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/6 bg-gradient-to-l from-gray-900 sm:block" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/6 bg-gradient-to-r from-gray-800 sm:block" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/6 bg-gradient-to-l from-gray-800 sm:block" />
     </div>
   );
 }

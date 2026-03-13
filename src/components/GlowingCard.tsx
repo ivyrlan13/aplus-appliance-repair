@@ -18,7 +18,7 @@ export default function GlowingCard({ children, className }: GlowingCardProps) {
         inactiveZone={0.01}
         borderWidth={2}
       />
-      <div className="relative z-10">
+      <div className="relative z-10 h-full">
         {children}
       </div>
     </div>

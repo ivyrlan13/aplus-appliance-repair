@@ -54,8 +54,8 @@ export default function Footer() {
               </p>
               <div>
                 <p className="font-medium text-gray-200">Business Hours:</p>
-                <p>Mon - Sat: 8:00 AM - 6:00 PM</p>
-                <p>Sun: Emergency Calls Only</p>
+                <p>Open 24 Hours</p>
+                <p>7 Days a Week</p>
               </div>
             </div>
           </div>

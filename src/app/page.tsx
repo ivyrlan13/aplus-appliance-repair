@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import AnimatedHero from "@/components/AnimatedHero";
-import GlowingCard from "@/components/GlowingCard";
+import { GlowCard } from "@/components/GlowCard";
 import { business } from "@/data/business";
 import { services } from "@/data/services";
 import { locations } from "@/data/locations";
 import TestimonialMarquee from "@/components/TestimonialMarquee";
+import AnimatedSection from "@/components/AnimatedSection";
+import ScrollingImages from "@/components/ScrollingImages";
 import {
   generateLocalBusinessSchema,
   generateWebsiteSchema,
@@ -24,6 +26,8 @@ export const metadata: Metadata = {
     "washer repair Bradenton",
     "dryer repair Sarasota",
     "refrigerator repair Bradenton",
+    "dryer vent cleaning Bradenton",
+    "dryer vent cleaning Sarasota",
   ],
   openGraph: {
     title: "Appliance Repair Bradenton & Sarasota FL | A Plus Appliance Repair",
@@ -34,12 +38,12 @@ export const metadata: Metadata = {
 };
 
 const serviceCardColors = [
-  "bg-red-900/40 border-red-700/30",
-  "bg-blue-900/40 border-blue-700/30",
-  "bg-amber-900/40 border-amber-700/30",
-  "bg-emerald-900/40 border-emerald-700/30",
-  "bg-purple-900/40 border-purple-700/30",
-  "bg-cyan-900/40 border-cyan-700/30",
+  "bg-red-50 border-red-200",
+  "bg-blue-50 border-blue-200",
+  "bg-amber-50 border-amber-200",
+  "bg-emerald-50 border-emerald-200",
+  "bg-purple-50 border-purple-200",
+  "bg-cyan-50 border-cyan-200",
 ];
 
 const promises = [
@@ -75,7 +79,16 @@ const promises = [
   },
 ];
 
-const brands = ["LG", "GE", "Samsung", "Frigidaire", "Whirlpool", "Maytag", "Sears", "KitchenAid"];
+const brands = [
+  { name: "LG", logo: "/logos/lg.png" },
+  { name: "GE", logo: "/logos/ge.png" },
+  { name: "Samsung", logo: "/logos/samsung.png" },
+  { name: "Frigidaire", logo: "/logos/frigidaire.png" },
+  { name: "Whirlpool", logo: "/logos/whirlpool.png" },
+  { name: "Maytag", logo: "/logos/maytag.png" },
+  { name: "Sears", logo: "/logos/sears.png" },
+  { name: "KitchenAid", logo: "/logos/kitchenaid.png" },
+];
 
 export default function HomePage() {
   return (
@@ -83,17 +96,17 @@ export default function HomePage() {
       {/* ====== ANIMATED HERO with cycling brand names ====== */}
       <AnimatedHero />
 
-      {/* ====== GOOGLE REVIEWS — V3 layout, V1 dark/dramatic styling ====== */}
-      <section className="bg-gray-900 py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <GlowingCard>
-            <div className="rounded-2xl border border-gray-700/50 bg-gray-800/60 p-8 shadow-2xl sm:p-12">
+      {/* ====== GOOGLE REVIEWS ====== */}
+      <section className="bg-gray-800 py-16 sm:py-20">
+        <AnimatedSection className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <GlowCard>
+            <div className="rounded-2xl border border-gray-700/50 bg-gray-700/50 p-8 shadow-xl sm:p-12">
               <div className="text-center">
                 <p className="text-sm font-semibold uppercase tracking-widest text-gray-400">
                   What Our Customers Say
                 </p>
 
-                {/* Stars — large like V1 */}
+                {/* Stars */}
                 <div className="mt-5 flex items-center justify-center gap-2">
                   {[...Array(5)].map((_, i) => (
                     <svg
@@ -107,7 +120,7 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                {/* Rating — massive V1 style */}
+                {/* Rating */}
                 <div className="mt-5">
                   <span className="text-6xl font-extrabold text-white sm:text-7xl">
                     {business.rating}
@@ -135,38 +148,38 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-          </GlowingCard>
+          </GlowCard>
 
           {/* Scrolling testimonials */}
           <TestimonialMarquee />
-        </div>
+        </AnimatedSection>
       </section>
 
-      {/* ====== SERVICES — V3 tile grid, V1 bold dark styling ====== */}
-      <section className="bg-gray-950 py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      {/* ====== SERVICES ====== */}
+      <section className="bg-gray-100 py-16 sm:py-24">
+        <AnimatedSection className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             What We <span className="text-brand-red">Repair</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-gray-400">
+          <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-gray-500">
             Expert care for every appliance in your home
           </p>
 
           <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
-              <GlowingCard key={service.slug}>
+              <GlowCard key={service.slug}>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group block overflow-hidden rounded-2xl border border-gray-700/50 bg-gray-800/50 shadow-lg transition-all hover:border-brand-red/50 hover:shadow-2xl hover:shadow-red-900/20"
+                  className="group block overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md transition-all hover:border-brand-red/50 hover:shadow-xl hover:shadow-red-900/10"
                 >
                   <div
                     className={`${serviceCardColors[index % serviceCardColors.length]} flex flex-col items-center border-b px-6 pb-8 pt-10`}
                   >
                     <span className="text-7xl sm:text-8xl">{service.icon}</span>
-                    <h3 className="mt-5 text-2xl font-extrabold text-white group-hover:text-brand-red">
+                    <h3 className="mt-5 text-2xl font-extrabold text-gray-900 group-hover:text-brand-red">
                       {service.name}
                     </h3>
-                    <p className="mt-3 text-center text-sm leading-relaxed text-gray-300">
+                    <p className="mt-3 text-center text-sm leading-relaxed text-gray-600">
                       {service.shortDescription}
                     </p>
                     <span className="mt-5 inline-flex items-center gap-2 text-base font-bold text-brand-red">
@@ -177,15 +190,15 @@ export default function HomePage() {
                     </span>
                   </div>
                 </Link>
-              </GlowingCard>
+              </GlowCard>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
-      {/* ====== OUR PROMISE — V3 3-card layout, V1 dark bold styling ====== */}
-      <section className="bg-gray-900 py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* ====== OUR PROMISE ====== */}
+      <section className="bg-gray-800 py-16 sm:py-24">
+        <AnimatedSection className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
               Our Promise <span className="text-brand-red">to You</span>
@@ -197,32 +210,35 @@ export default function HomePage() {
 
           <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
             {promises.map((promise) => (
-              <div
-                key={promise.title}
-                className="rounded-2xl border border-gray-700/50 bg-gray-800/60 p-8 text-center shadow-lg transition-all hover:border-brand-red/40 hover:shadow-xl"
-              >
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-red text-white shadow-lg shadow-red-900/40">
-                  {promise.icon}
+              <GlowCard key={promise.title}>
+                <div className="rounded-2xl border border-gray-700/50 bg-gray-700/50 p-8 text-center shadow-md transition-all hover:border-brand-red/40 hover:shadow-xl">
+                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-red text-white shadow-lg shadow-red-900/40">
+                    {promise.icon}
+                  </div>
+                  <h3 className="mt-6 text-2xl font-extrabold text-white">
+                    {promise.title}
+                  </h3>
+                  <p className="mt-4 text-base leading-relaxed text-gray-300">
+                    {promise.description}
+                  </p>
                 </div>
-                <h3 className="mt-6 text-2xl font-extrabold text-white">
-                  {promise.title}
-                </h3>
-                <p className="mt-4 text-base leading-relaxed text-gray-300">
-                  {promise.description}
-                </p>
-              </div>
+              </GlowCard>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
-      {/* ====== SERVICE AREAS — V3 community messaging, V1 bold dark treatment ====== */}
-      <section className="bg-gray-950 py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      {/* ====== SERVICE AREAS ====== */}
+      <section className="relative overflow-hidden py-16 sm:py-24">
+        <div className="absolute inset-0 z-0 flex items-center">
+          <ScrollingImages />
+        </div>
+        <div className="absolute inset-0 z-[1] bg-gray-100/65" />
+        <AnimatedSection className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             Proudly Serving <span className="text-brand-red">Our Community</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-center text-lg leading-relaxed text-gray-400">
+          <p className="mx-auto mt-4 max-w-3xl text-center text-lg leading-relaxed text-gray-600">
             From the beaches of Sarasota to the growing neighborhoods of Parrish,
             we&apos;re your neighbors. Our technicians live and work right here in
             Manatee and Sarasota counties, and we treat every customer like family.
@@ -233,18 +249,21 @@ export default function HomePage() {
               <Link
                 key={location.slug}
                 href={`/service-areas/${location.slug}`}
-                className="group rounded-full border-2 border-gray-600 bg-gray-800/60 px-6 py-3 text-base font-bold text-white shadow-sm transition-all hover:border-brand-red hover:bg-brand-red hover:shadow-lg hover:shadow-red-900/30"
+                className="group relative overflow-hidden rounded-full border-2 border-gray-300 bg-white/90 px-6 py-3 text-base font-bold text-gray-900 shadow-sm transition-all hover:border-brand-red hover:shadow-lg hover:shadow-red-900/30"
               >
-                {location.name}, {location.state}
+                <span className="absolute inset-0 bg-brand-red translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0" />
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                  {location.name}, {location.state}
+                </span>
               </Link>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
-      {/* ====== BRANDS — V3 "Trusted by Leading Brands", V1 bold dark grid ====== */}
-      <section className="border-t border-gray-800 bg-gray-900 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* ====== BRANDS ====== */}
+      <section className="border-t border-gray-700 bg-gray-800 py-16 sm:py-20">
+        <AnimatedSection className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
               Trusted by <span className="text-brand-red">Leading Brands</span>
@@ -256,41 +275,46 @@ export default function HomePage() {
 
           <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:gap-6">
             {brands.map((brand) => (
-              <div
-                key={brand}
-                className={`flex items-center justify-center rounded-xl border px-4 py-6 text-center transition-all ${
-                  brand === "LG"
-                    ? "border-brand-red bg-brand-red/10 shadow-lg shadow-red-900/20"
-                    : "border-gray-700/50 bg-gray-800/40 hover:border-gray-500"
-                }`}
-              >
-                <div>
-                  <span
-                    className={`text-2xl font-extrabold sm:text-3xl ${
-                      brand === "LG" ? "text-brand-red" : "text-white"
+              <GlowCard key={brand.name} className="rounded-xl">
+                <div
+                  className={`flex h-full flex-col items-center justify-center rounded-xl border px-4 py-6 text-center transition-all ${
+                    brand.name === "LG"
+                      ? "border-brand-red bg-brand-red/10 shadow-lg shadow-red-900/20"
+                      : "border-gray-700/50 bg-gray-700/50 hover:border-gray-500"
+                  }`}
+                >
+                  <img
+                    src={brand.logo}
+                    alt={`${brand.name} logo`}
+                    className={`w-auto object-contain brightness-0 invert ${
+                      brand.name === "GE" ? "h-24 sm:h-28" : "h-20 sm:h-24"
                     }`}
-                  >
-                    {brand}
-                  </span>
-                  {brand === "LG" && (
-                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-red-400">
+                  />
+                  {brand.name === "LG" && (
+                    <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-red-400">
                       Authorized Repair Center
                     </p>
                   )}
                 </div>
-              </div>
+              </GlowCard>
             ))}
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* ====== CTA — V3 "Your Neighbors Trust Us" message, V1 dramatic red banner ====== */}
-      <section className="bg-brand-red py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <section className="relative py-16 sm:py-20">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/cta-bg.webp')" }}
+        >
+          <div className="absolute inset-0 bg-gray-900/80" />
+        </div>
+        <AnimatedSection className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
-            Your Neighbors Trust Us &mdash;
+            Your Neighbors Trust Us
             <br />
-            You Can Too
+            <span className="text-brand-red">You Can Too</span>
           </h2>
           <p className="mt-6 text-lg text-red-100 sm:text-xl">
             Join the hundreds of families in Bradenton and Sarasota who count on
@@ -299,11 +323,11 @@ export default function HomePage() {
 
           <a
             href="tel:+19415272206"
-            className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-xl bg-white px-10 py-5 text-2xl font-extrabold text-brand-red shadow-2xl outline outline-1 outline-white transition-all hover:scale-105 sm:text-3xl"
+            className="group relative mt-10 inline-flex items-center gap-3 overflow-hidden rounded-xl bg-brand-red px-10 py-5 text-2xl font-extrabold text-white shadow-2xl outline outline-1 outline-brand-red transition-all hover:scale-105 sm:text-3xl"
           >
-            <span className="absolute inset-0 bg-brand-red translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0" />
+            <span className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0" />
             <svg
-              className="relative z-10 h-7 w-7 transition-colors duration-300 group-hover:text-white"
+              className="relative z-10 h-7 w-7 transition-colors duration-300 group-hover:text-brand-red"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -315,7 +339,7 @@ export default function HomePage() {
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
               />
             </svg>
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">(941) 527-2206</span>
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-brand-red">(941) 527-2206</span>
           </a>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
@@ -330,7 +354,7 @@ export default function HomePage() {
           <p className="mt-4 text-sm text-red-200">
             Available 24/7 &mdash; because appliance emergencies don&apos;t wait
           </p>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* Schema Markup */}
