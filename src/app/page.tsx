@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import AnimatedHero from "@/components/AnimatedHero";
@@ -250,9 +251,11 @@ export default function HomePage() {
                       : "border-gray-700/50 bg-gray-700/50 hover:border-gray-500"
                   }`}
                 >
-                  <img
+                  <Image
                     src={brand.logo}
                     alt={`${brand.name} logo`}
+                    width={120}
+                    height={96}
                     className={`w-auto object-contain brightness-0 invert ${
                       brand.name === "GE" ? "h-14 sm:h-28" : "h-12 sm:h-24"
                     }`}

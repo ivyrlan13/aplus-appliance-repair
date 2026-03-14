@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -100,9 +101,12 @@ export default function ServicesGallery() {
                     <div className="flex aspect-[3/2] overflow-clip rounded-xl">
                       <div className="flex-1">
                         <div className="relative h-full w-full origin-bottom transition duration-300 group-hover:scale-105">
-                          <img
+                          <Image
                             src={serviceImages[service.slug]}
                             alt={service.name}
+                            width={452}
+                            height={301}
+                            sizes="(max-width: 768px) 100vw, 452px"
                             className="h-full w-full object-cover object-center"
                           />
                         </div>

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const images = [
   // Ringling Museum
   "/community/ringling-museum.jpg",
@@ -30,9 +32,12 @@ export default function ScrollingImages() {
             key={index}
             className="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105"
           >
-            <img
+            <Image
               src={image}
               alt={`Bradenton and Sarasota area ${(index % images.length) + 1}`}
+              width={288}
+              height={288}
+              sizes="(max-width: 768px) 192px, (max-width: 1024px) 256px, 288px"
               className="w-full h-full object-cover brightness-90 contrast-110 saturate-[1.2]"
               loading="lazy"
             />

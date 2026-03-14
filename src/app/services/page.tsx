@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import AnimatedSection from "@/components/AnimatedSection";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
 import SchemaMarkup from "@/components/SchemaMarkup";
@@ -22,20 +23,28 @@ export default function ServicesPage() {
       />
 
       {/* Services Grid */}
-      <section className="bg-gray-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard
-                key={service.slug}
-                icon={service.icon}
-                name={service.name}
-                description={service.shortDescription}
-                slug={service.slug}
-              />
-            ))}
+      <section className="bg-gray-100 py-16 sm:py-20">
+        <AnimatedSection>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-center text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              Expert Appliance Repair
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-gray-600">
+              Professional diagnostics and repairs for all major household appliances
+            </p>
+            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {services.map((service) => (
+                <ServiceCard
+                  key={service.slug}
+                  icon={service.icon}
+                  name={service.name}
+                  description={service.shortDescription}
+                  slug={service.slug}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* Call To Action */}

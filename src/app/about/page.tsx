@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import ReviewBadge from "@/components/ReviewBadge";
 import CallToAction from "@/components/CallToAction";
 import SchemaMarkup from "@/components/SchemaMarkup";
+import AnimatedSection from "@/components/AnimatedSection";
+import { GlowCard } from "@/components/GlowCard";
 import { business } from "@/data/business";
 import {
   generateLocalBusinessSchema,
@@ -68,7 +70,7 @@ export default function AboutPage() {
 
       {/* Company Story */}
       <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <AnimatedSection className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">
             Our Story
           </h2>
@@ -99,17 +101,17 @@ export default function AboutPage() {
               comprehensive parts and labor warranty.
             </p>
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* LG Authorized */}
-      <section className="bg-red-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-gray-800 py-16 sm:py-20">
+        <AnimatedSection className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               LG Authorized Repair Center
             </h2>
-            <div className="mx-auto mt-8 max-w-3xl space-y-6 text-base leading-relaxed text-brand-body sm:text-lg">
+            <div className="mx-auto mt-8 max-w-3xl space-y-6 text-base leading-relaxed text-gray-300 sm:text-lg">
               <p>
                 A Plus Appliance Repair is proud to be an LG Authorized Repair
                 Center. This designation means our technicians have completed
@@ -132,12 +134,12 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* Why Customers Trust Us */}
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="bg-gray-100 py-16 sm:py-20">
+        <AnimatedSection className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">
             Why Customers Trust Us
           </h2>
@@ -147,17 +149,19 @@ export default function AboutPage() {
           </p>
           <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {trustSignals.map((signal) => (
-              <div key={signal.title} className="text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-50">
-                  {signal.icon}
+              <GlowCard key={signal.title}>
+                <div className="rounded-2xl border border-gray-700/50 bg-gray-800 p-8 text-center text-white shadow-md transition-all hover:border-brand-red/40 hover:shadow-xl">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand-red text-white shadow-lg shadow-red-900/40">
+                    {signal.icon}
+                  </div>
+                  <h3 className="mt-4 text-lg font-bold text-white">
+                    {signal.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-300">
+                    {signal.description}
+                  </p>
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-brand-dark">
-                  {signal.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-brand-body">
-                  {signal.description}
-                </p>
-              </div>
+              </GlowCard>
             ))}
           </div>
 
@@ -165,7 +169,7 @@ export default function AboutPage() {
           <div className="mt-12 flex justify-center">
             <ReviewBadge />
           </div>
-        </div>
+        </AnimatedSection>
       </section>
 
       {/* Call To Action */}

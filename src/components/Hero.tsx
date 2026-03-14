@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface HeroProps {
   title: string;
@@ -12,7 +15,7 @@ export default function Hero({
   showReviews = true,
 }: HeroProps) {
   return (
-    <section className="relative bg-gray-900">
+    <section className="relative bg-gray-900 overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -26,21 +29,37 @@ export default function Hero({
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+          >
             {title}
-          </h1>
-          <p className="mt-6 text-lg leading-relaxed text-gray-200 sm:text-xl">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+            className="mt-6 text-lg leading-relaxed text-gray-200 sm:text-xl"
+          >
             {subtitle}
-          </p>
+          </motion.p>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          >
             <a
               href="tel:+19415272206"
-              className="inline-flex w-full items-center justify-center rounded-lg bg-brand-red px-8 py-4 text-lg font-bold text-white shadow-lg transition-all hover:bg-red-700 hover:shadow-xl sm:w-auto"
+              className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-lg bg-brand-red px-8 py-4 text-lg font-bold text-white shadow-lg outline outline-1 outline-brand-red transition-all hover:shadow-xl sm:w-auto"
             >
+              <span className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0" />
               <svg
-                className="mr-2 h-5 w-5"
+                className="relative z-10 mr-2 h-5 w-5 transition-colors duration-300 group-hover:text-brand-red"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -52,19 +71,29 @@ export default function Hero({
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-              Call Now (941) 527-2206
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-brand-red">
+                Call Now (941) 527-2206
+              </span>
             </a>
             <Link
               href="/services"
-              className="inline-flex w-full items-center justify-center rounded-lg border-2 border-white px-8 py-4 text-lg font-bold text-white transition-all hover:bg-white hover:text-gray-900 sm:w-auto"
+              className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-lg border-2 border-white px-8 py-4 text-lg font-bold text-white transition-all sm:w-auto"
             >
-              Our Services
+              <span className="absolute inset-0 bg-white translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0" />
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-gray-900">
+                Our Services
+              </span>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Trust Bar */}
           {showReviews && (
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-200 sm:text-base">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-200 sm:text-base"
+            >
               <span className="flex items-center gap-1">
                 <span className="text-yellow-400">4.9</span>
                 <span className="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
@@ -75,7 +104,7 @@ export default function Hero({
               <span>20+ Years Experience</span>
               <span className="hidden h-4 w-px bg-gray-500 sm:inline-block" />
               <span>LG Authorized</span>
-            </div>
+            </motion.div>
           )}
         </div>
       </div>

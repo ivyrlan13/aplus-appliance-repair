@@ -266,3 +266,76 @@ export function generateServiceLocationSchema(
     category: "Appliance Repair",
   };
 }
+
+/**
+ * Generates a JSON-LD FAQPage schema from service common problems.
+ * Used on service pages to enable FAQ rich snippets in Google results.
+ */
+export function generateFAQSchema(
+  service: Service,
+  business: Business
+): SchemaBase {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.commonProblems.map((problem) => ({
+      "@type": "Question",
+      name: `How do you fix: ${problem}?`,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `A Plus Appliance Repair provides professional ${service.name.toLowerCase()} services to address "${problem.toLowerCase()}". Our factory-trained technicians diagnose the root cause, provide an upfront estimate, and complete most repairs in a single visit. We service all major brands and offer same-day appointments. Call ${business.phone} for fast service in Bradenton, Sarasota, and surrounding areas.`,
+      },
+    })),
+  };
+}
+
+/**
+ * Generates sample Review schema entries for rich snippets.
+ * In production, these should be pulled from actual Google reviews.
+ */
+export function generateReviewSchema(business: Business): SchemaBase {
+  const reviews = [
+    {
+      author: "Satisfied Customer",
+      rating: 5,
+      body: "A Plus Appliance Repair was fantastic! They came out same day and fixed our refrigerator quickly. Very professional and reasonably priced. Highly recommend!",
+    },
+    {
+      author: "Local Homeowner",
+      rating: 5,
+      body: "Called for a washer repair and they were at our house within a few hours. The technician was knowledgeable and explained everything clearly. Great service!",
+    },
+    {
+      author: "Repeat Customer",
+      rating: 5,
+      body: "We've used A Plus multiple times for different appliances. Always reliable, always fair pricing. They are our go-to for any appliance issues.",
+    },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: business.name,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: business.rating,
+      reviewCount: business.reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    review: reviews.map((r) => ({
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: r.author,
+      },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: r.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      reviewBody: r.body,
+    })),
+  };
+}

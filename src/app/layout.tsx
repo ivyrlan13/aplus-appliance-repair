@@ -25,12 +25,33 @@ export const metadata: Metadata = {
     title: "A Plus Appliance Repair | Bradenton & Sarasota FL",
     description:
       "Fast, reliable appliance repair in Bradenton & Sarasota FL. 20+ years experience, LG Authorized, 4.9 stars. Call (941) 527-2206.",
+    images: [
+      {
+        url: "https://aplusappliancerepairbradenton.com/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "A Plus Appliance Repair - Bradenton & Sarasota FL",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "A Plus Appliance Repair | Bradenton & Sarasota FL",
     description:
       "Fast, reliable appliance repair in Bradenton & Sarasota FL. 20+ years experience, LG Authorized, 4.9 stars. Call (941) 527-2206.",
+    images: ["https://aplusappliancerepairbradenton.com/images/logo.png"],
+  },
+  manifest: "/manifest.json",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  // Placeholder for Google Search Console - replace with actual verification code
+  verification: {
+    google: "GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE",
+  },
+  alternates: {
+    canonical: "https://aplusappliancerepairbradenton.com",
   },
 };
 

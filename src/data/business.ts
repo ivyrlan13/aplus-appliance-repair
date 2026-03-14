@@ -3,7 +3,7 @@ export const business = {
   legalName: "A Plus Appliance Repair LLC",
   phone: "(941) 527-2206",
   phoneRaw: "+19415272206",
-  email: "aplusrepairsrq@gmail.com",
+  email: "info@aplusappliancerepairfl.com",
   url: "https://aplusappliancerepairbradenton.com",
 
   address: {

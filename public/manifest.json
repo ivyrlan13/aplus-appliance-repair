@@ -1,0 +1,21 @@
+{
+  "name": "A Plus Appliance Repair",
+  "short_name": "A Plus Repair",
+  "description": "Fast, reliable appliance repair in Bradenton & Sarasota FL. 20+ years experience, LG Authorized.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FF0000",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
